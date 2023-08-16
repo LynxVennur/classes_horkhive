@@ -85,3 +85,21 @@ class Mananger:
 
             print(' ')
             print('maybe name or password are wrong')
+    
+    def forgot_password(self):
+        while True:
+            email = input('enter your e-mail: ')
+            cpf = int(input('enter your cpf: '))
+
+            for joker in db_users:
+                if joker.email == email:
+                    if joker.cpf == cpf:
+                        while True:
+                            password = input('enter your new password: ')
+                            if(input('re-enter your password: ') == password):
+                                joker.password = password
+                                self.state = 'StartUp'
+                                return
+                            else:
+                                print('passwords didnt match')
+            print('email or cpf may be incorrect')        

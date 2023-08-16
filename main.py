@@ -42,12 +42,13 @@ while True:
         state = 'StartUp'
 
     elif mng.get_state() == 'ForgotPass':
-        print(state)
-        break
+        mng.forgot_password()
+        state = 'StartUp'
 
     elif mng.get_state() == 'Logged':
-        print('logged')
-        break
+        main_texts = [
+            ''
+        ]
 
     elif mng.get_state() == 'DEBUG':
         for joker in db_users:
